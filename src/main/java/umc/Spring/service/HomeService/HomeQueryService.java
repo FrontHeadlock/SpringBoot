@@ -1,8 +1,8 @@
-package umc.Spring.service;
+package umc.Spring.service.HomeService;
 
 
 import umc.Spring.domain.Home;
-import umc.Spring.domain.Store;
+
 import java.util.List;
 import java.util.Optional;
 

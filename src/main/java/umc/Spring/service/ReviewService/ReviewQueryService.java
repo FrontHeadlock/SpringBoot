@@ -1,4 +1,4 @@
-package umc.Spring.service;
+package umc.Spring.service.ReviewService;
 
 import umc.Spring.domain.Review;
 

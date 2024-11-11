@@ -1,4 +1,4 @@
-package umc.Spring.service;
+package umc.Spring.service.UserService;
 
 import umc.Spring.domain.User;
 import java.util.List;

@@ -1,4 +1,4 @@
-package umc.Spring.service;
+package umc.Spring.service.ReviewService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -6,7 +6,6 @@ import org.springframework.transaction.annotation.Transactional;
 import umc.Spring.domain.Review;
 import umc.Spring.repository.ReviewRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 

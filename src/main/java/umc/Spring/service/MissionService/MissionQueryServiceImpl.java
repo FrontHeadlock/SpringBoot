@@ -1,5 +1,5 @@
 // MissionQueryServiceImpl.java
-package umc.Spring.service;
+package umc.Spring.service.MissionService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

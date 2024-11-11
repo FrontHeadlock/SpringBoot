@@ -1,7 +1,6 @@
-package umc.Spring.service;
+package umc.Spring.service.RegionService;
 
 import umc.Spring.domain.Region;
-import umc.Spring.repository.RegionRepository;
 
 import java.util.List;
 import java.util.Optional;

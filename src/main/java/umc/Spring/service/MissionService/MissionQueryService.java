@@ -1,4 +1,4 @@
-package umc.Spring.service;
+package umc.Spring.service.MissionService;
 
 import umc.Spring.domain.Mission;
 
