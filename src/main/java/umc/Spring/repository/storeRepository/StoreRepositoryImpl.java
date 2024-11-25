@@ -1,40 +1,35 @@
-package umc.Spring.repository;
+package umc.Spring.repository.storeRepository;
 
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import umc.Spring.domain.Home;
-import umc.Spring.domain.QHome;
 import umc.Spring.domain.QStore;
 import umc.Spring.domain.Store;
 
 import java.util.List;
-import java.util.Optional;
 
-import static umc.Spring.domain.QHome.home;
-import static umc.Spring.domain.QStore.store;
 @Repository
 @RequiredArgsConstructor
 
-public class HomeRepositoryImpl implements HomeRepositoryCustom{
+public class StoreRepositoryImpl implements StoreRepositoryCustom{
     private final JPAQueryFactory jpaQueryFactory;
-    private final QHome Home = home;
+    private final QStore store = QStore.store;
 
     @Override
-    public List<umc.Spring.domain.Home> dynamicQueryWithBooleanBuilder(Long id, String name) {
+    public List<Store> dynamicQueryWithBooleanBuilder(String name, Float score) {
         BooleanBuilder predicate = new BooleanBuilder();
 
         if (name != null) {
-            predicate.and(home.name.eq(name));
+            predicate.and(store.name.eq(name));
         }
 
-        if (id != null && id>0) {
-            predicate.and(home.id.eq(id));
+        if (score != null) {
+            predicate.and(store.score.goe(4.0f));
         }
 
         return jpaQueryFactory
-                .selectFrom(home)
+                .selectFrom(store)
                 .where(predicate)
                 .fetch();
     }

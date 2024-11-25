@@ -1,7 +1,6 @@
-package umc.Spring.repository;
+package umc.Spring.repository.Home;
 
 import umc.Spring.domain.Home;
-import umc.Spring.domain.Mission;
 
 import java.util.List;
 

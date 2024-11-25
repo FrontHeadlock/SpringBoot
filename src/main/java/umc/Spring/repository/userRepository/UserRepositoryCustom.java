@@ -1,4 +1,4 @@
-package umc.Spring.repository;
+package umc.Spring.repository.userRepository;
 
 import umc.Spring.domain.User;
 import java.util.List;

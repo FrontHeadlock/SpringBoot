@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import umc.Spring.domain.Review;
-import umc.Spring.repository.ReviewRepository;
+import umc.Spring.repository.reviewRepository.ReviewRepository;
 
 import java.util.List;
 import java.util.Optional;

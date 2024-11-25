@@ -1,4 +1,4 @@
-package umc.Spring.repository;
+package umc.Spring.repository.regionRepository;
 
 import umc.Spring.domain.Region;
 

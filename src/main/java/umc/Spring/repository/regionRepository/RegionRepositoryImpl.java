@@ -1,4 +1,4 @@
-package umc.Spring.repository;
+package umc.Spring.repository.regionRepository;
 
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.jpa.impl.JPAQueryFactory;

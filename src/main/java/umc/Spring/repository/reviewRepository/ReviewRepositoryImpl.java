@@ -1,4 +1,4 @@
-package umc.Spring.repository;
+package umc.Spring.repository.reviewRepository;
 
 
 import com.querydsl.core.BooleanBuilder;

@@ -1,4 +1,4 @@
-package umc.Spring.repository;
+package umc.Spring.repository.storeRepository;
 
 import umc.Spring.domain.Store;
 import java.util.List;
