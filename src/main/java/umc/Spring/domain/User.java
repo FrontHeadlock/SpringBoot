@@ -30,6 +30,9 @@ public class User extends BaseEntity {
     @Column(nullable = false,length = 40)
     private String Address;
 
+    @Column(nullable = false, length = 40)
+    private String specAddress;
+
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(10)")
     private Gender gender;

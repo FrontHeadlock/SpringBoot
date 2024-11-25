@@ -28,8 +28,8 @@ public class Region extends BaseEntity {
 
     private String name;
 
-    @OneToOne(mappedBy = "region")
-    private Store store;
+    @OneToMany(mappedBy = "region", cascade = CascadeType.ALL)
+    private List<Store> store = new ArrayList<>();
 
     @OneToMany(mappedBy = "region", cascade = CascadeType.ALL)
     private List<Home> homeList = new ArrayList<>();
