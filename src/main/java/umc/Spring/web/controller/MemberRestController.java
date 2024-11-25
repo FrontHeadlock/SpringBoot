@@ -6,7 +6,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import umc.Spring.apiPayload.ApiResponse;
+import umc.Spring.converter.MemberConverter;
+import umc.Spring.domain.User;
+import umc.Spring.service.UserService.UserCommandService;
 import umc.Spring.web.dto.memberDTO.MemberRequestDTO;
 import umc.Spring.web.dto.memberDTO.MemberResponseDTO;
 
@@ -19,6 +23,7 @@ public class MemberRestController {
 
     @PostMapping("/")
     public ApiResponse<MemberResponseDTO.JoinResultDTO> join(@RequestBody @Valid MemberRequestDTO.JoinDto request){
-        return null;
+        User user = userCommandService.joinMember(request);
+        return ApiResponse.onSuccess(MemberConverter.toJoinResultDTO(user));
     }
 }

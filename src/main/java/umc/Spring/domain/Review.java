@@ -19,7 +19,7 @@ public class Review {
     @Column(nullable = false, length = 50)
     private String title;
     @Column(nullable = false, length = 5)
-    private String score;
+    private Float score;
 
     @ManyToOne
     @JoinColumn(name = "store_id", nullable = false)
@@ -28,4 +28,8 @@ public class Review {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "parent_review_id") // Review 간 관계
+    private Review parentReview;
 }
