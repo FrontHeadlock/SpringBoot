@@ -6,17 +6,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.awt.print.Pageable;
+
 @RestController
 @RequestMapping("/api/missions")
 public class MissionController {
 
-    @Autowired
-    private UserMissionService userMissionService;
+    //@Autowired
+    //private UserMissionService userMissionService;
 
-    @GetMapping("/user/{userId}")
+    /*@GetMapping("/user/{userId}")
     public Page<MissionDto> getUserMissions(
             @PathVariable Long userId,
             Pageable pageable) {
         return userMissionService.getUserMissions(userId, pageable);
-    }
+    }*/
 }

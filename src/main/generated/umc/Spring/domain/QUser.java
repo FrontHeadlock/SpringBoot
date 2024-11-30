@@ -43,6 +43,8 @@ public class QUser extends EntityPathBase<User> {
 
     public final ListPath<Review, QReview> reviewList = this.<Review, QReview>createList("reviewList", Review.class, QReview.class, PathInits.DIRECT2);
 
+    public final StringPath specAddress = createString("specAddress");
+
     public final EnumPath<umc.Spring.domain.enums.MemberStatus> status = createEnum("status", umc.Spring.domain.enums.MemberStatus.class);
 
     //inherited

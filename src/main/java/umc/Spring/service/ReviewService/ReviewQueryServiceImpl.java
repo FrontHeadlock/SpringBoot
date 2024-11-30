@@ -1,10 +1,14 @@
 package umc.Spring.service.ReviewService;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import umc.Spring.domain.Review;
+import umc.Spring.domain.Store;
 import umc.Spring.repository.reviewRepository.ReviewRepository;
+import umc.Spring.repository.storeRepository.StoreRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,6 +30,14 @@ public class ReviewQueryServiceImpl implements ReviewQueryService {
         filteredReviews.forEach(review -> System.out.println("review: "+ review));
         return filteredReviews;
 
+    }
+    @Override
+    public Page<Review> getReviewList(Long StoreId, Integer page) {
+
+        Store store = StoreRepository.findById(StoreId).get();
+
+        Page<Review> StorePage = reviewRepository.findAllByStore(store, PageRequest.of(page, 10));
+        return StorePage;
     }
 
 }

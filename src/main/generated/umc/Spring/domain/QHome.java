@@ -65,7 +65,7 @@ public class QHome extends EntityPathBase<Home> {
     public QHome(Class<? extends Home> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
         this.mission = inits.isInitialized("mission") ? new QMission(forProperty("mission"), inits.get("mission")) : null;
-        this.region = inits.isInitialized("region") ? new QRegion(forProperty("region"), inits.get("region")) : null;
+        this.region = inits.isInitialized("region") ? new QRegion(forProperty("region")) : null;
         this.user = inits.isInitialized("user") ? new QUser(forProperty("user")) : null;
     }
 

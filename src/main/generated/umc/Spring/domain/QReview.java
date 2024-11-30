@@ -24,7 +24,9 @@ public class QReview extends EntityPathBase<Review> {
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
-    public final StringPath score = createString("score");
+    public final QReview parentReview;
+
+    public final NumberPath<Float> score = createNumber("score", Float.class);
 
     public final QStore store;
 
@@ -50,6 +52,7 @@ public class QReview extends EntityPathBase<Review> {
 
     public QReview(Class<? extends Review> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
+        this.parentReview = inits.isInitialized("parentReview") ? new QReview(forProperty("parentReview"), inits.get("parentReview")) : null;
         this.store = inits.isInitialized("store") ? new QStore(forProperty("store"), inits.get("store")) : null;
         this.user = inits.isInitialized("user") ? new QUser(forProperty("user")) : null;
     }

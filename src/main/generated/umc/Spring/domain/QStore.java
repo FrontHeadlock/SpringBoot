@@ -62,7 +62,7 @@ public class QStore extends EntityPathBase<Store> {
 
     public QStore(Class<? extends Store> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.region = inits.isInitialized("region") ? new QRegion(forProperty("region"), inits.get("region")) : null;
+        this.region = inits.isInitialized("region") ? new QRegion(forProperty("region")) : null;
     }
 
 }

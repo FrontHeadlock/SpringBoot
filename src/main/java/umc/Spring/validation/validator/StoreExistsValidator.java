@@ -1,9 +1,11 @@
 package umc.Spring.validation.validator;
 
+import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import umc.Spring.repository.storeRepository.StoreRepository;
+import umc.Spring.validation.annotation.ExistStore;
 
 @Component
 @RequiredArgsConstructor

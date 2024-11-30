@@ -1,5 +1,6 @@
 package umc.Spring.service.ReviewService;
 
+import org.springframework.data.domain.Page;
 import umc.Spring.domain.Review;
 
 import java.util.List;
@@ -9,4 +10,5 @@ public interface ReviewQueryService {
 
     Optional<Review> findReview(Long id);
     List<Review> findReviewsById(Long id);
+    Page<Review> getReviewList(Long StoreId, Integer page);
 }
