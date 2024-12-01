@@ -46,5 +46,6 @@ public class MissionResponseDTO {
     private LocalDate expire_date;
     private String missionSpec;
     private String storeName; // 미션이 속한 가게의 이름
+    private MissionStatus status;
 
 }

@@ -13,6 +13,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import umc.Spring.domain.common.BaseEntity;
 import umc.Spring.domain.enums.MemberStatus;
+import umc.Spring.domain.enums.MissionStatus;
 import umc.Spring.domain.mapping.MemberMission;
 
 @Entity
@@ -32,6 +33,9 @@ public class Mission extends BaseEntity {
     private LocalDate expire_date;
 
     private String missionSpec;
+
+    @Enumerated(EnumType.STRING) // Enum 값을 String으로 저장
+    private MissionStatus status;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="store_id")
