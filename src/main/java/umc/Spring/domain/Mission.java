@@ -37,6 +37,7 @@ public class Mission extends BaseEntity {
     @Enumerated(EnumType.STRING) // Enum 값을 String으로 저장
     private MissionStatus status;
 
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="store_id")
     private Store store;
@@ -47,5 +48,8 @@ public class Mission extends BaseEntity {
     @OneToMany(mappedBy = "mission", cascade = CascadeType.ALL)
     private List<Home> homeList = new ArrayList<>();
 
-
+    // 상태 변경 메서드
+    public void setStatus(MissionStatus status) {
+        this.status = status;
+    }
 }

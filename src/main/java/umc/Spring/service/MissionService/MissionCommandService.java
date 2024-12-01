@@ -6,4 +6,7 @@ import umc.Spring.web.dto.missionDTO.MissionResponseDTO;
 
 public interface MissionCommandService {
     MissionResponseDTO addMission(@Valid MissionRequestDTO requestDto);
+
+
+    void completeMission(Long missionId);
 }

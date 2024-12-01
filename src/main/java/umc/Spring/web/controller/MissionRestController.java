@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import umc.Spring.apiPayload.ApiResponse;
+import umc.Spring.converter.MissionConverter;
 import umc.Spring.service.MissionService.MissionCommandService;
 import umc.Spring.service.MissionService.MissionQueryService;
 import umc.Spring.web.dto.missionDTO.MissionResponseDTO;
@@ -42,6 +43,8 @@ public class MissionRestController {
         return ApiResponse.onSuccess(ongoingMissions);
     }
 
+    private final MissionCommandService missionCommandService;
+
     @PatchMapping("/{missionId}/complete")
     @Operation(summary = "진행 중인 미션 완료 처리 API", description = "현재 진행 중인 미션을 완료 상태로 변경합니다.")
     @ApiResponses(value = {
@@ -56,8 +59,8 @@ public class MissionRestController {
     @Parameters({
             @Parameter(name = "missionId", description = "완료할 미션의 ID, path variable 입니다.")
     })
-    public ApiResponse<Void> completeMission(@PathVariable(name = "missionId") Long missionId) {
-        MissionCommandService.completeMission(missionId);
+    public ApiResponse<Void> completeMission(@PathVariable Long missionId) {
+        missionCommandService.completeMission(missionId);
         return ApiResponse.onSuccess();
     }
 
