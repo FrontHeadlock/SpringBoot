@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import umc.Spring.domain.common.BaseEntity;
 import umc.Spring.domain.enums.Gender;
 import umc.Spring.domain.enums.MemberStatus;
+import umc.Spring.domain.enums.Role;
 import umc.Spring.domain.mapping.MemberMission;
 import lombok.*;
 import umc.Spring.domain.mapping.MemberPrefer;
@@ -27,11 +28,14 @@ public class User extends BaseEntity {
     @Column(nullable = false,length = 20)
     private String name;
 
-    @Column(nullable = false,length = 40)
-    private String Address;
+    @Column(nullable = false, length = 40)
+    private String address;
 
     @Column(nullable = false, length = 40)
     private String specAddress;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(10)")
@@ -45,6 +49,12 @@ public class User extends BaseEntity {
 
     private Integer point;
 
+    @Column(nullable = false, length = 50)
+    private String email;
+
+    @Column(nullable = false)
+    private String password;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<MemberMission> memberMissionList = new ArrayList<>();
 
@@ -56,4 +66,8 @@ public class User extends BaseEntity {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Home> homeList = new ArrayList<>();
+
+    public void encodePassword(String password) {
+        this.password = password;
+    }
 }
