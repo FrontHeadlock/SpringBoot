@@ -37,7 +37,7 @@ public class ReviewConverter {
                 .ownerNickname(review.getUser().getName())
                 .score(review.getScore())
                 .createdAt(review.getCreatedAt().toLocalDate())
-                .body(review.getBody())
+                //.body(review.getBody())
                 .build();
     }
 

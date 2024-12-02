@@ -35,10 +35,13 @@ public class MemberConverter {
         }
 
         return User.builder()
-                .Address(request.getAddress())
+                .email(request.getEmail())   // 추가된 코드
+                .password(request.getPassword())   // 추가된 코드
+                .address(request.getAddress())
                 .specAddress(request.getSpecAddress())
                 .gender(gender)
                 .name(request.getName())
+                .role(request.getRole())   // 추가된 코드
                 .memberPreferList(new ArrayList<>())
                 .build();
     }

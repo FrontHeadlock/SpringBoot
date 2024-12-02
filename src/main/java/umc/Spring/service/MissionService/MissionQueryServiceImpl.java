@@ -64,7 +64,13 @@ public class MissionQueryServiceImpl implements MissionQueryService {
                 .toList();
 
         // MissionListDTO 생성
-        return MissionConverter.toMissionListDTO(ongoingMissions);
+        return MissionResponseDTO.MissionListDTO.builder()
+                .missions(missionPreviews)
+                .totalPages(ongoingMissions.getTotalPages())
+                .totalElements(ongoingMissions.getTotalElements())
+                .isFirst(ongoingMissions.isFirst())
+                .isLast(ongoingMissions.isLast())
+                .build();
     }
 
     private User getCurrentUser() {

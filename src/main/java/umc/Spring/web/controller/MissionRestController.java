@@ -39,7 +39,7 @@ public class MissionRestController {
     })
     public ApiResponse<MissionResponseDTO.MissionListDTO> getOngoingMissions(
             @RequestParam(name = "page", defaultValue = "0") Integer page) {
-        MissionResponseDTO.MissionListDTO ongoingMissions = missionQueryService.getOngoingMissions(page);
+        MissionResponseDTO.MissionListDTO ongoingMissions = missionQueryService.getOngoingMissions(page.longValue(), page);
         return ApiResponse.onSuccess(ongoingMissions);
     }
 
@@ -61,7 +61,7 @@ public class MissionRestController {
     })
     public ApiResponse<Void> completeMission(@PathVariable Long missionId) {
         missionCommandService.completeMission(missionId);
-        return ApiResponse.onSuccess();
+        return ApiResponse.onSuccess(null);
     }
 
 }

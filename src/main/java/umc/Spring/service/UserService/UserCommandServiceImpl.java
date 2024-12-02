@@ -2,7 +2,9 @@ package umc.Spring.service.UserService;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import umc.Spring.apiPayload.code.ErrorStatus;
 import umc.Spring.converter.MemberConverter;
 import umc.Spring.domain.FoodCategory;
 import umc.Spring.domain.User;
@@ -21,6 +23,7 @@ public class UserCommandServiceImpl implements UserCommandService {
     private final UserRepository userRepository;
 
     private final FoodCategoryRepository foodCategoryRepository;
+
     /*
     @Override
     @Transactional
@@ -37,7 +40,17 @@ public class UserCommandServiceImpl implements UserCommandService {
         userPreferList.forEach(memberPrefer -> {memberPrefer.setUser(newUser);});
 
         return userRepository.save(newUser);
-    }
+    }*/
 
-    */
+
+    private final PasswordEncoder passwordEncoder;
+
+    @Override
+    @Transactional
+    public User joinMember(MemberRequestDTO.JoinDto request){
+        User newUser = MemberConverter.toUser(request);
+        newUser.encodePassword(passwordEncoder.encode(request.getPassword()));
+
+        return userRepository.save(newUser);
+    }
 }

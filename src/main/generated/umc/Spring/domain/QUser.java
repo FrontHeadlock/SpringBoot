@@ -22,10 +22,12 @@ public class QUser extends EntityPathBase<User> {
 
     public final umc.Spring.domain.common.QBaseEntity _super = new umc.Spring.domain.common.QBaseEntity(this);
 
-    public final StringPath Address = createString("Address");
+    public final StringPath address = createString("address");
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
+
+    public final StringPath email = createString("email");
 
     public final EnumPath<umc.Spring.domain.enums.Gender> gender = createEnum("gender", umc.Spring.domain.enums.Gender.class);
 
@@ -39,9 +41,13 @@ public class QUser extends EntityPathBase<User> {
 
     public final StringPath name = createString("name");
 
+    public final StringPath password = createString("password");
+
     public final NumberPath<Integer> point = createNumber("point", Integer.class);
 
     public final ListPath<Review, QReview> reviewList = this.<Review, QReview>createList("reviewList", Review.class, QReview.class, PathInits.DIRECT2);
+
+    public final EnumPath<umc.Spring.domain.enums.Role> role = createEnum("role", umc.Spring.domain.enums.Role.class);
 
     public final StringPath specAddress = createString("specAddress");
 

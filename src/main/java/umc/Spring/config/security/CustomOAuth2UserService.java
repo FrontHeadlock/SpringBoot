@@ -13,6 +13,7 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 import umc.Spring.domain.User;
 import umc.Spring.domain.enums.Gender;
+import umc.Spring.domain.enums.Role;
 import umc.Spring.repository.userRepository.UserRepository;
 
 public class CustomOAuth2UserService {
@@ -59,7 +60,7 @@ public class CustomOAuth2UserService {
                             .role(Role.USER)
                             .build());
 
-            return memberRepository.save(member);
+            return userRepository.save(user);
         }
     }
 }

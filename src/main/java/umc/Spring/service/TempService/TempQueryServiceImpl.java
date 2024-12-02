@@ -14,4 +14,5 @@ public class TempQueryServiceImpl implements TempQueryService{
         if (flag == 1)
             throw new TempHandler(ErrorStatus.TEMP_EXCEPTION);
     }
+
 }
