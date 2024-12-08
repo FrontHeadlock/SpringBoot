@@ -1,6 +1,7 @@
 package umc.Spring.service.ReviewService;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,8 @@ import java.util.Optional;
 @Transactional(readOnly = true)
 public class ReviewQueryServiceImpl implements ReviewQueryService {
 
+    private final StoreRepository storeRepository;
+
     private final ReviewRepository reviewRepository;
 
     @Override
@@ -31,10 +34,12 @@ public class ReviewQueryServiceImpl implements ReviewQueryService {
         return filteredReviews;
 
     }
+
     @Override
     public Page<Review> getReviewList(Long StoreId, Integer page) {
 
-        Store store = StoreRepository.findById(StoreId).get();
+        Store store = storeRepository.findById(StoreId).get();
+
 
         Page<Review> StorePage = reviewRepository.findAllByStore(store, PageRequest.of(page, 10));
         return StorePage;

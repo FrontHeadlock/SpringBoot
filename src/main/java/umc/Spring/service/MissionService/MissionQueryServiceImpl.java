@@ -3,6 +3,7 @@ package umc.Spring.service.MissionService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,7 +50,7 @@ public class MissionQueryServiceImpl implements MissionQueryService {
         PageRequest pageRequest = PageRequest.of(page, 10);
 
         // 진행 중인 미션 조회
-        Page<Mission> ongoingMissions = missionRepository.findAllByUserAndStatus(currentUser, MissionStatus.CHALLENGING, pageRequest);
+        Page<Mission> ongoingMissions = missionRepository.findAllByUserAndStatus(currentUser, MissionStatus.CHALLENGING, (Pageable) pageRequest);
 
         // DTO 변환
         List<MissionResponseDTO.MissionPreviewDTO> missionPreviews = ongoingMissions.stream()
@@ -57,8 +58,8 @@ public class MissionQueryServiceImpl implements MissionQueryService {
                         .id(mission.getId())
                         .missionSpec(mission.getMissionSpec())
                         .storeName(mission.getStore().getName())
-                        .missionPoint(mission.getMissionPoint())
-                        .expireDate(mission.getExpireDate())
+                        //.missionPoint(mission.getMissionPoint())
+                        //.expireDate(mission.getExpireDate())
                         .status(mission.getStatus())
                         .build())
                 .toList();

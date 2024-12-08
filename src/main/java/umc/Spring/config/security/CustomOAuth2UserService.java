@@ -16,7 +16,6 @@ import umc.Spring.domain.enums.Gender;
 import umc.Spring.domain.enums.Role;
 import umc.Spring.repository.userRepository.UserRepository;
 
-public class CustomOAuth2UserService {
     @Service
     @RequiredArgsConstructor
     public class CustomOAuth2UserService extends DefaultOAuth2UserService {
@@ -63,4 +62,3 @@ public class CustomOAuth2UserService {
             return userRepository.save(user);
         }
     }
-}

@@ -17,11 +17,11 @@ public class Review extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
 
     @Column(nullable = false, length = 50)
     private String title;
+
     @Column(nullable = false, length = 5)
     private Float score;
 
@@ -34,14 +34,14 @@ public class Review extends BaseEntity {
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "parent_review_id") // Review 간 관계
+    @JoinColumn(name = "parent_review_id") // 부모 리뷰를 가리킴
     private Review parentReview;
 
-    @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "parentReview", cascade = CascadeType.ALL) // 부모 리뷰와 연결
     private List<Review> reviewList = new ArrayList<>();
 
-    public void setMember(User user){
-        if(this.user != null)
+    public void setMember(User user) {
+        if (this.user != null)
             user.getReviewList().remove(this);
         this.user = user;
         user.getReviewList().add(this);
@@ -53,5 +53,4 @@ public class Review extends BaseEntity {
         this.store = store;
         store.getReviewList().add(this);
     }*/
-
 }
